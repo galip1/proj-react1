@@ -6,7 +6,7 @@ import logo from "../../assets/images/eco-logo.png";
 const Header = () => {
   return (
     <header className="header">
-      <Container>
+      <Container fluid>
         <Row>
           <div className="nav__wrapper">
             <div className="logo">

@@ -46,6 +46,8 @@
       color: var(--primary-color);
       font-weight: 600;
       margin-top: 2rem;
+      display: flex;
+      justify-content: center;
     }
     .store__btn a:hover {
       color: var(--primary-color);

@@ -8,13 +8,16 @@ import { Link } from "react-router-dom";
 import Services from "../services/Services";
 import ProductList from "../components/UI/ProductList";
 import products from "../assets/data/products";
-
+import "../styles/product-card.scss";
 import counterImg from "../assets/images/counter-timer-img.png";
 import Clock from "../components/UI/Clock";
 
 const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [bestSalesProducts, setBestSalesProducts] = useState([]);
+  const [mobileProducts, setMobileProducts] = useState([]);
+  const [wirelessProducts, setWirelessProducts] = useState([]);
+  const [popularProducts, setPopularProducts] = useState([]);
   const year = new Date().getFullYear();
 
   useEffect(() => {
@@ -24,9 +27,21 @@ const Home = () => {
     const filteredBestSalesProducts = products.filter(
       (item) => item.category === "sofa"
     );
+    const filteredMobileProducts = products.filter(
+      (item) => item.category === "mobile"
+    );
+    const filteredWirelessProducts = products.filter(
+      (item) => item.category === "wireless"
+    );
+    const filteredPopularProducts = products.filter(
+      (item) => item.category === "watch"
+    );
 
     setTrendingProducts(filteredTrendingProducts);
     setBestSalesProducts(filteredBestSalesProducts);
+    setMobileProducts(filteredMobileProducts);
+    setWirelessProducts(filteredWirelessProducts);
+    setPopularProducts(filteredPopularProducts);
   }, []);
 
   return (
@@ -98,6 +113,28 @@ const Home = () => {
             <Col lg="6" md="6" className="text-end">
               <img src={counterImg} alt="" />
             </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="new__arrivals">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center mb-5">
+              <h2 className="section__title">New Arrivals</h2>
+            </Col>
+            <ProductList data={mobileProducts} />
+            <ProductList data={wirelessProducts} />
+          </Row>
+        </Container>
+      </section>
+      <section className="popular__category mb-5">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center mb-5">
+              <h2 className="section__title">Popular in Category</h2>
+            </Col>
+            <ProductList data={popularProducts} />
           </Row>
         </Container>
       </section>

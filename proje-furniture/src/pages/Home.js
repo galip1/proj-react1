@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Helmet from "../components/Helmet/Helmet";
 import heroImg from "../assets/images/hero-img.png";
 import { motion } from "framer-motion";
